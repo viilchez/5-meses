@@ -54,6 +54,11 @@ section.active {
     margin-top: 0;
 }
 
+#recuerdos h2{
+  margin-top: 0;
+  margin-bottom: 80px;
+}
+
 /* Galería */
 .galeria img {
   width: 100%;
@@ -71,10 +76,13 @@ section.active {
 
 /* Carrusel 3D */
 .carousel {
-  perspective: 1000px;
+  perspective: 1400px;
   width: 300px;
-  height: 200px;
+  height: 300px;
   margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .carousel-inner {
@@ -90,15 +98,16 @@ section.active {
   width: 300px;
   height: 350px;
   object-fit: cover; /* 🔑 clave */
-  left: 50px;
-  top: 40px;
   border-radius: 10px;
+  --i: 0;
+  transform: rotateY(calc(var(--i) * 72deg)) translateZ(280px);
 }
 
-.carousel-inner img:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
-.carousel-inner img:nth-child(2) { transform: rotateY(90deg) translateZ(300px); }
-.carousel-inner img:nth-child(3) { transform: rotateY(180deg) translateZ(300px); }
-.carousel-inner img:nth-child(4) { transform: rotateY(270deg) translateZ(300px); }
+.carousel-inner img:nth-child(1) { --i: 0; }
+.carousel-inner img:nth-child(2) { --i: 1; }
+.carousel-inner img:nth-child(3) { --i: 2; }
+.carousel-inner img:nth-child(4) { --i: 3; }
+.carousel-inner img:nth-child(5) { --i: 4; }
 
 @keyframes rotar {
   from { transform: rotateY(0deg); }
